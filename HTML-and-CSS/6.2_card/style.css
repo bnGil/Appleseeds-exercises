@@ -1,0 +1,32 @@
+.card {
+  /* background-image: url("https://www.israel21c.org/wp-content/uploads/2015/10/shutterstock_87086366-768x432.jpg");
+  background-repeat: no-repeat; */
+  background-color: beige;
+  height: 270px;
+  width: 250px;
+  box-shadow: 0 10px 10px rgb(180, 180, 180);
+}
+
+img {
+  width: 250px;
+  height: auto;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+span {
+  font-size: 12px;
+  text-decoration: underline;
+  color: darkgoldenrod;
+}

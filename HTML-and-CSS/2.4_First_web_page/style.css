@@ -1,9 +1,16 @@
 .card {
   border: 1px solid rgb(158, 158, 158);
   text-align: center;
-  width: 40%;
-  height: 50%;
+  width: 100px;
+  height: 100px;
   box-shadow: 0 0 20px 1px rgb(151, 151, 151);
+  float: left;
+  margin: 30px;
+}
+
+.whole-page {
+  width: 40%;
+  text-align: center;
   margin: auto;
 }
 
@@ -36,4 +43,14 @@ li {
 
 ul {
   padding: 0;
+}
+
+.logo {
+  margin-top: 12px;
+  width: 70px;
+  height: auto;
+}
+
+.clr {
+  clear: both;
 }

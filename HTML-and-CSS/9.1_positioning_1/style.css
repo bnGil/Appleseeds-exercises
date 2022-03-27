@@ -1,0 +1,18 @@
+#outer {
+  width: 100px;
+  height: 100px;
+  background: darkcyan;
+  margin: 50px;
+  position: relative;
+}
+#inner {
+  width: 50px;
+  height: 50px;
+  background: lightgreen;
+  position: absolute;
+  top: 10px;
+}
+
+/* From looking at the html file we see that there is a div inside a div. If we want to 
+move a child inside a parent we have to define the parent as relative and the child as absolute.
+So in this css file we just had to add relative position to the outer div */

@@ -1,0 +1,105 @@
+button {
+  margin-right: 20px;
+}
+
+body {
+  background-color: rgb(35, 59, 104);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+  color: rgb(219, 219, 219);
+}
+
+.box-flat .register {
+  background-color: rgb(53, 223, 109);
+  border: none;
+  color: rgb(219, 219, 219);
+  padding: 10px 25px;
+}
+
+.box-flat .clear {
+  background-color: rgb(228, 40, 40);
+  border: none;
+  color: rgb(219, 219, 219);
+  padding: 7px 20px;
+}
+
+.box-flat .submit {
+  background-color: rgb(18, 125, 248);
+  border: none;
+  color: rgb(219, 219, 219);
+  padding: 4px 14px;
+  font-size: 10px;
+}
+
+.box-round .register {
+  border: none;
+  border-radius: 20px;
+  padding: 7px 25px;
+  background-color: orange;
+  color: rgb(219, 219, 219);
+}
+
+.box-round .clear {
+  border: none;
+  border-radius: 20px;
+  padding: 7px 20px;
+  color: rgb(163, 163, 163);
+  background-color: rgb(253, 253, 0);
+}
+
+.box-round .submit {
+  border: none;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 10px;
+  color: rgb(158, 158, 158);
+}
+
+.box-flatghost .register {
+  background-color: transparent;
+  border: 2px solid rgb(53, 223, 109);
+  padding: 7px 20px;
+  color: rgb(219, 219, 219);
+}
+
+.box-flatghost .clear {
+  background-color: transparent;
+  border: 2px solid rgb(223, 53, 53);
+  padding: 5px 15px;
+  color: rgb(163, 163, 163);
+}
+
+.box-flatghost .submit {
+  background-color: transparent;
+  color: rgb(158, 158, 158);
+  border: 2px solid rgb(3, 131, 251);
+  padding: 4px 14px;
+  font-size: 10px;
+}
+
+.box-roundghost .register {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 2px solid rgb(223, 178, 53);
+  padding: 7px 20px;
+  color: rgb(219, 219, 219);
+}
+
+.box-roundghost .clear {
+  border-radius: 20px;
+  background-color: transparent;
+  border: 2px solid rgb(238, 255, 0);
+  padding: 5px 15px;
+  color: rgb(163, 163, 163);
+}
+
+.box-roundghost .submit {
+  border-radius: 20px;
+  background-color: transparent;
+  color: rgb(148, 148, 148);
+  border: 2px solid rgb(107, 107, 107);
+  padding: 4px 14px;
+  font-size: 10px;
+}

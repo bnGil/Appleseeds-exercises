@@ -8,10 +8,10 @@
   margin: 30px;
 }
 
-.whole-page {
-  width: 40%;
-  text-align: center;
+.cards-container {
+  width: 500px;
   margin: auto;
+  margin-top: 50px;
 }
 
 body {
@@ -25,7 +25,8 @@ body {
 }
 
 img {
-  width: 70%;
+  margin-top: 50px;
+  max-width: 400px;
   border-radius: 15px 15px;
   box-shadow: 0 0 8px 8px 0 white inset;
 }
@@ -53,4 +54,50 @@ ul {
 
 .clr {
   clear: both;
+}
+
+.header-text {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+}
+
+.navbar {
+  max-width: 250px;
+  margin-left: auto;
+}
+
+.navbar .nav-button {
+  border: 1px solid rgb(99, 99, 99);
+  border-radius: 10px;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0px 5px;
+}
+
+.navbar .nav-button:hover {
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.profile-picture {
+  width: 400px;
+  margin: auto;
+}
+
+footer {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#main-body {
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+
+#main-body p {
+  width: fit-content;
+  margin: auto;
 }

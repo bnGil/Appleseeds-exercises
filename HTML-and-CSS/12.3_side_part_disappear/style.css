@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  height: 95vh;
+  margin: auto;
+}
+
+header {
+  background-color: orange;
+  text-align: center;
+  border: 1px solid black;
+  margin: 8px 0;
+}
+
+aside {
+  background-color: green;
+  border: 1px solid black;
+  float: left;
+  width: 30%;
+  height: 80%;
+}
+
+main {
+  background-color: purple;
+  border: 1px solid black;
+  float: right;
+  width: 69%;
+  height: 80%;
+}
+
+footer {
+  background-color: blue;
+  text-align: center;
+  border: 1px solid black;
+  margin: 8px 0;
+}
+
+aside p {
+  margin: 8px;
+}
+
+main p {
+  margin: 8px;
+  text-align: right;
+}
+
+.clr {
+  clear: both;
+}
+
+@media (max-width: 1000px) {
+  aside {
+    display: none;
+  }
+  main {
+    width: 100%;
+  }
+}

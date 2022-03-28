@@ -1,0 +1,22 @@
+/* Web page */
+
+.box {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: black;
+  color: white;
+  max-width: 200px;
+  margin: auto;
+  padding: 5px 20px;
+  display: inline-block;
+}
+
+.container {
+  width: 1000px;
+  margin: auto;
+}
+
+@media (max-width: 700px) {
+  .box {
+    display: block;
+  }
+} ;

@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.flex-container {
+  background-color: beige;
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.item {
+  height: 100px;
+  width: 100px;
+  padding: 5px;
+}
+
+.item-1 {
+  background-color: green;
+}
+.item-2 {
+  background-color: blue;
+}
+.item-3 {
+  background-color: red;
+}

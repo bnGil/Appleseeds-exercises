@@ -1,0 +1,24 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+/* Base and fixed size for all small devices */
+header h1 {
+  color: orange;
+  margin-top: 30vh;
+  font-size: 1.5em;
+}
+
+/* Fluid size for all screens, larger than 480px */
+@media (min-width: 480px) {
+  header h1 {
+    font-size: 5vw;
+  }
+}

@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  height: 100vh;
+  align-items: center;
+}
+/* spinner 1 */
+.spinner-1 {
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgb(138, 138, 138);
+  border-top: 3px solid rgb(0, 255, 170);
+  border-radius: 50%;
+  animation-name: animation1;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes animation1 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* spinner 2 */
+.spinner-2 {
+  width: 100px;
+  height: 100px;
+  border-top: 3px solid rgb(0, 255, 170);
+  border-radius: 50%;
+  animation-name: animation2;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes animation2 {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* spinner 3 */
+.spinner-3 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ball {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(0, 255, 170);
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.spinner-3 .ball-1 {
+  animation-name: ball1;
+  animation-duration: 1s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes ball1 {
+  0% {
+    background-color: rgb(138, 138, 138);
+  }
+  100% {
+    background-color: rgb(0, 255, 170);
+  }
+}
+.spinner-3 .ball-2 {
+  animation-name: ball2;
+  animation-duration: 1s;
+  animation-delay: 0.33s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes ball2 {
+  0% {
+    background-color: rgb(138, 138, 138);
+  }
+  100% {
+    background-color: rgb(0, 255, 170);
+  }
+}
+.spinner-3 .ball-3 {
+  animation-name: ball3;
+  animation-duration: 1s;
+  animation-delay: 0.66s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes ball3 {
+  0% {
+    background-color: rgb(138, 138, 138);
+  }
+  100% {
+    background-color: rgb(0, 255, 170);
+  }
+}
+
+/* spinner 4 */
+.spinner-4 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ball-4 {
+  animation-name: ball4;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ball4 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.ball-5 {
+  animation-name: ball5;
+  animation-duration: 1s;
+  animation-delay: 0.25s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ball5 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.ball-6 {
+  animation-name: ball6;
+  animation-duration: 1s;
+  animation-delay: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ball6 {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

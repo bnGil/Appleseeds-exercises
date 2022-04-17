@@ -30,10 +30,8 @@ function countOnlyVowels(str) {
   return arrOfLetters.reduce((vowelsObj, letter) => {
     if ("aeiou".includes(letter)) {
       vowelsObj[letter] = (vowelsObj[letter] || 0) + 1;
-      return vowelsObj;
-    } else {
-      return vowelsObj;
     }
+    return vowelsObj;
   }, {});
 }
 

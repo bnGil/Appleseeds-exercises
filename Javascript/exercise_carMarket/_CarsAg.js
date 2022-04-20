@@ -619,144 +619,244 @@ const carMarket = {
     sumOfAllTransactions: 0,
     numberOfTransactions: 0,
   },
-  getAgencyByName(name) {
-    for (let i = 0; i < this.sellers.length; i++) {
-      if (this.sellers[i].agencyName === name) {
-        return this.sellers[i];
+};
+
+//! agency's func's
+//todo getters
+
+//* getAgencyByName --------------------------DONE
+//? @param {string} - name
+//? @return {Object} - agency object
+carMarket.getAgencyByName = function (name) {
+  for (let i = 0; i < this.sellers.length; i++) {
+    if (this.sellers[i].agencyName === name) {
+      return this.sellers[i];
+    }
+  }
+};
+
+//* getAgencyIdByName --------------------------DONE
+//? @param {String} - name
+//? @return {String} - agencyId
+carMarket.getAgencyIdByName = function (name) {
+  for (let i = 0; i < this.sellers.length; i++) {
+    if (this.sellers[i].agencyName === name) {
+      return this.sellers[i].agencyId;
+    }
+  }
+};
+
+//* getAllAgenciesName --------------------------DONE
+//? @param {}
+//? @return {string[]} - agenciesNameArr - Array of all agencies name
+carMarket.getAllAgenciesName = function () {
+  return this.sellers.map((seller) => seller.agencyName);
+};
+
+//* getAllCarToBuy --------------------------DONE
+//? @param {}
+//? @return {object[]} - allCarsToBuy - arrays of all cars objects
+carMarket.getAllCarToBuy = function () {
+  const carsToBuy = [];
+  for (let seller of this.sellers) {
+    for (let brand of seller.cars) {
+      for (let car of brand.models) {
+        carsToBuy.push(car);
       }
     }
-  },
-  getAgencyIdByName(name) {
-    for (let i = 0; i < this.sellers.length; i++) {
-      if (this.sellers[i].agencyName === name) {
-        return this.sellers[i].agencyId;
-      }
+  }
+  return carsToBuy;
+};
+
+//* getAllCarToBuyByAgencyId --------------------------DONE
+//? @param {string} - id of agency
+//? @return {object[]} - carsArray - arrays of all models objects of specific agency
+carMarket.getAllCarToBuyByAgencyId = function (agencyId) {
+  const carsOfAgency = [];
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  for (let brand of agency.cars) {
+    for (let model of brand.models) {
+      carsOfAgency.push(model);
     }
-  },
-  // getAgencyIdByName(name) {   ----> It works
-  //   return this.getAgencyByName(name).agencyId;
-  // },
-  getAllAgenciesName() {
-    return this.sellers.map((seller) => seller.agencyName);
-  },
-  getAllCarToBuy() {
-    const carsToBuy = [];
-    for (let seller of this.sellers) {
-      for (let brand of seller.cars) {
-        carsToBuy.push(brand);
-      }
-    }
-    return carsToBuy;
-  },
-  getAllCarToBuyByAgencyId(agencyId) {
-    const carsOfAgency = [];
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    for (let brand of agency.cars) {
+  }
+  return carsOfAgency;
+};
+
+//* getAllBrandsToBuyAgencyId --------------------------DONE
+//? @param {string} - agencyId -  id of agency
+// ? @return {string[]} - arrOfBrands - arrays of all brands name in specific agency
+carMarket.getAllBrandsToBuyAgencyId = function (agencyId) {
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  return agency.cars.map((brandObj) => brandObj.brand);
+};
+
+//! customer func's
+//todo getters
+
+//* getCustomerByName --------------------------DONE
+//? @param {string} - name
+//? @return {Object} - customer
+carMarket.getCustomerByName = function (name) {
+  return this.customers.find((customer) => customer.name === name);
+};
+
+//* getCustomerIdByName --------------------------DONE
+//? @param {name}
+//? @return {String} - customerId - The customer id
+carMarket.getCustomerIdByName = function (name) {
+  return this.getCustomerByName(name).id;
+};
+
+//* getAllCustomersNames --------------------------DONE
+//? @param {}
+//? @return {string[]} - customersNameArr -  Array of all customers name
+carMarket.getAllCustomersNames = function () {
+  return this.customers.map((customer) => customer.name);
+};
+
+//* getAllCustomerCars --------------------------DONE
+//? @param {id} - costumerId - costumer id
+//? @return {object[]} - customerCarsArr -  Array of all customer cars object
+carMarket.getAllCustomerCars = function (customerId) {
+  const customer = this.customers.find(
+    (customer) => customer.id === customerId
+  );
+  return customer.cars;
+};
+
+//* getCustomerCash --------------------------DONE
+//? @param {id} - costumerId - costumer id
+//? @return {number} - CustomerCash
+carMarket.getCustomerCash = function (customerId) {
+  const customer = this.customers.find(
+    (customer) => customer.id === customerId
+  );
+  return customer.cash;
+};
+
+//!------------------------------------------------------------
+
+//*  1) setPropertyBrandToAllCars --------------------------DONE
+//? set all cars model object the current brand
+//? @param {}
+//? @return {}
+carMarket.setPropertyBrandToAllCars = function () {
+  const modelObj = {};
+  for (let seller of this.sellers) {
+    for (let brand of seller.cars) {
       for (let model of brand.models) {
-        carsOfAgency.push(model);
-      }
-    }
-    return carsOfAgency;
-  },
-  getAllBrandsToBuyAgencyId(agencyId) {
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    return agency.cars.map((brandObj) => brandObj.brand);
-  },
-  getCustomerByName(name) {
-    return this.customers.find((customer) => customer.name === name);
-  },
-  getCustomerIdByName(name) {
-    return this.getCustomerByName(name).id;
-  },
-  getAllCustomersNames() {
-    return this.customers.map((customer) => customer.name);
-  },
-  getAllCustomerCars(customerId) {
-    const customer = this.customers.find(
-      (customer) => customer.id === customerId
-    );
-    return customer.cars;
-  },
-  getCustomerCash(customerId) {
-    const customer = this.customers.find(
-      (customer) => customer.id === customerId
-    );
-    return customer.cash;
-  },
-  setPropertyBrandToAllCars() {
-    const modelObj = {};
-    for (let seller of this.sellers) {
-      for (let brand of seller.cars) {
-        for (let model of brand.models) {
-          model.brand = brand.brand;
-          if (!modelObj[model.name]) {
-            modelObj[model.name] = brand.brand;
-          }
+        model.brand = brand.brand;
+        if (!modelObj[model.name]) {
+          modelObj[model.name] = brand.brand;
         }
       }
     }
-    for (let customer of this.customers) {
-      for (let car of customer.cars) {
-        car.brand = modelObj[car.name];
-      }
+  }
+  for (let customer of this.customers) {
+    for (let car of customer.cars) {
+      car.brand = modelObj[car.name];
     }
-  },
-  setNewCarToAgency(agencyId, carObject) {
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    agency.cars.push(carObject);
-  },
-  deleteCarFromAgency(agencyId, carId) {
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    agency.cars.forEach((brand) =>
-      brand.models.forEach((car, carIdx) => {
-        if (car.carNumber === carId) {
-          brand.models.splice(carIdx, 1);
-        }
-      })
-    );
-  },
-  decrementOrIncrementCashOfAgency(agencyId, amount) {
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    agency.cash += amount;
-    return agency.cash;
-  },
-  decrementOrIncrementCreditOfAgency(agencyId, amount) {
-    const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
-    agency.credit += amount;
-    return agency.credit;
-  },
-  setAmountOfCarsToBuyToAllAgency() {
-    this.sellers.forEach((agency) => {
-      let amountOfCars = 0;
-      agency.cars.forEach((brand) => (amountOfCars += brand.models.length));
-      agency.amountOfCars = amountOfCars;
-    });
-    return this.sellers;
-  },
-  setCarToCostumer(customerId, carObject) {
-    const customer = this.customers.find(
-      (customer) => customer.id === customerId
-    );
-    customer.cars.push(carObject);
-  },
-  deleteCarOfCostumer(customerId, carId) {
-    const customer = this.customers.find(
-      (customer) => customer.id === customerId
-    );
-    customer.cars.forEach((car, carIdx) => {
+  }
+};
+
+//todo Agency setters
+
+//* setNewCarToAgency --------------------------DONE
+//? @param {string} - id of agency
+//? @param {object} - carObject
+//? @return {}
+carMarket.setNewCarToAgency = function (agencyId, carObject) {
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  agency.cars.push(carObject);
+};
+
+//* deleteCarFromAgency --------------------------DONE
+//? @param {string} - id of agency
+//? @param {string} -  Car id
+// ? @return {}
+carMarket.deleteCarFromAgency = function (agencyId, carId) {
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  agency.cars.forEach((brand) =>
+    brand.models.forEach((car, carIdx) => {
       if (car.carNumber === carId) {
-        customer.cars.splice(carIdx, 1);
+        brand.models.splice(carIdx, 1);
       }
-    });
-    return customer.cars;
-  },
-  decrementOrIncrementCashOfCostumer(customerId, amount) {
-    const customer = this.customers.find(
-      (customer) => customer.id === customerId
-    );
-    customer.cash += amount;
-    return customer.cash;
-  },
+    })
+  );
+};
+
+//* decrementOrIncrementCashOfAgency --------------------------DONE
+//? @param {string} - agencyId
+//? @param {number} - amount - negative or positive amount
+// ? @return {number} - agencyCash
+carMarket.decrementOrIncrementCashOfAgency = function (agencyId, amount) {
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  agency.cash += amount;
+  return agency.cash;
+};
+
+//* decrementOrIncrementCreditOfAgency --------------------------DONE
+//? @param {string} - agencyId
+//? @param {number} - amount - negative or positive amount
+// ? @return {number} - agencyCash
+carMarket.decrementOrIncrementCreditOfAgency = function (agencyId, amount) {
+  const agency = this.sellers.find((seller) => seller.agencyId === agencyId);
+  agency.credit += amount;
+  return agency.credit;
+};
+
+//* setAmountOfCarsToBuyToAllAgency's --------------------------DONE
+//? set a new property amountOfCars to all agency's, that represent the amount of cars available in the agency.
+//? @param {}
+// ? @return {objects[]} - sellers - array of all agency's
+carMarket.setAmountOfCarsToBuyToAllAgency = function () {
+  this.sellers.forEach((agency) => {
+    let amountOfCars = 0;
+    agency.cars.forEach((brand) => (amountOfCars += brand.models.length));
+    agency.amountOfCars = amountOfCars;
+  });
+  return this.sellers;
+};
+
+//todo setters
+
+//* setCarToCostumer --------------------------DONE
+//? @param {string} - costumerId
+//? @param {object} - carObject
+//? @return {object[]} - allCarsOfCostumer
+carMarket.setCarToCostumer = function (customerId, carObject) {
+  const customer = this.customers.find(
+    (customer) => customer.id === customerId
+  );
+  customer.cars.push(carObject);
+};
+
+//* deleteCarOfCostumer --------------------------DONE
+//? @param {string} - costumerId
+//? @param {string} - carId
+//? @return {object[]} - allCarsOfCostumer
+carMarket.deleteCarOfCostumer = function (customerId, carId) {
+  const customer = this.customers.find(
+    (customer) => customer.id === customerId
+  );
+  customer.cars.forEach((car, carIdx) => {
+    if (car.carNumber === carId) {
+      customer.cars.splice(carIdx, 1);
+    }
+  });
+  return customer.cars;
+};
+
+//* decrementOrIncrementCashOfCostumer --------------------------DONE
+//? @param {string} - costumerId
+//? @param {number} - amount - negative or positive amount
+// ? @return {number} - costumerCash
+carMarket.decrementOrIncrementCashOfCostumer = function (customerId, amount) {
+  const customer = this.customers.find(
+    (customer) => customer.id === customerId
+  );
+  customer.cash += amount;
+  return customer.cash;
 };
 
 // console.log(carMarket.getAgencyByName("Best Deal"));
@@ -779,103 +879,4 @@ const carMarket = {
 // console.log(carMarket.sellers[0]); "vaJvd"
 // carMarket.deleteCarOfCostumer("FQvNsEwLZ", "vaJvd");
 // console.log(carMarket.customers[6].cars);
-
-//! agency's func's
-//todo getters
-
-//* getAgencyByName --------------------------DONE
-//? @param {string} - name
-//? @return {Object} - agency object
-
-//* getAgencyIdByName --------------------------DONE
-//? @param {String} - name
-//? @return {String} - agencyId
-
-//* getAllAgenciesName --------------------------DONE
-//? @param {}
-//? @return {string[]} - agenciesNameArr - Array of all agencies name
-
-//* getAllCarToBuy --------------------------DONE
-//? @param {}
-//? @return {object[]} - allCarsToBuy - arrays of all cars objects
-
-//* getAllCarToBuyByAgencyId --------------------------DONE
-//? @param {string} - id of agency
-//? @return {object[]} - carsArray - arrays of all models objects of specific agency
-
-//* getAllBrandsToBuyAgencyId --------------------------DONE
-//? @param {string} - agencyId -  id of agency
-// ? @return {string[]} - arrOfBrands - arrays of all brands name in specific agency
-
-//! customer func's
-//todo getters
-//* getCustomerByName --------------------------DONE
-//? @param {string} - name
-//? @return {Object} - customer
-
-//* getCustomerIdByName --------------------------DONE
-//? @param {name}
-//? @return {String} - customerId - The customer id
-
-//* getAllCustomersNames --------------------------DONE
-//? @param {}
-//? @return {string[]} - customersNameArr -  Array of all customers name
-
-//* getAllCustomerCars --------------------------DONE
-//? @param {id} - costumerId - costumer id
-//? @return {object[]} - customerCarsArr -  Array of all customer cars object
-
-//* getCustomerCash --------------------------DONE
-//? @param {id} - costumerId - costumer id
-//? @return {number} - CustomerCash
-
-//!------------------------------------------------------------
-
-//*  1) setPropertyBrandToAllCars --------------------------DONE
-//? set all cars model object the current brand
-//? @param {}
-//? @return {}
-
-//todo Agency setters
-
-//* setNewCarToAgency --------------------------DONE
-//? @param {string} - id of agency
-//? @param {object} - carObject
-//? @return {}
-
-//* deleteCarFromAgency --------------------------DONE
-//? @param {string} - id of agency
-//? @param {string} -  Car id
-// ? @return {}
-
-//* decrementOrIncrementCashOfAgency --------------------------DONE
-//? @param {string} - agencyId
-//? @param {number} - amount - negative or positive amount
-// ? @return {number} - agencyCash
-
-//* decrementOrIncrementCreditOfAgency --------------------------DONE
-//? @param {string} - agencyId
-//? @param {number} - amount - negative or positive amount
-// ? @return {number} - agencyCash
-
-//* setAmountOfCarsToBuyToAllAgency's --------------------------DONE
-//? set a new property amountOfCars to all agency's, that represent the amount of cars available in the agency.
-//? @param {}
-// ? @return {objects[]} - sellers - array of all agency's
-
-//todo setters
-
-//* setCarToCostumer --------------------------DONE
-//? @param {string} - costumerId
-//? @param {object} - carObject
-//? @return {object[]} - allCarsOfCostumer
-
-//* deleteCarOfCostumer --------------------------DONE
-//? @param {string} - costumerId
-//? @param {string} - carId
-//? @return {object[]} - allCarsOfCostumer
-
-//* decrementOrIncrementCashOfCostumer --------------------------DONE
-//? @param {string} - costumerId
-//? @param {number} - amount - negative or positive amount
-// ? @return {number} - costumerCash
+// console.log(carMarket.getAllCarToBuy());

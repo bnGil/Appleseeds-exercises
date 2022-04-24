@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.createElement("div");
+    const home = document.createElement("a");
+    const about = document.createElement("a");
+    const service = document.createElement("a");
+    const contact = document.createElement("a");
+    home.innerText = "Home";
+    about.innerText = "About";
+    service.innerText = "Service";
+    contact.innerText = "Contact";
+    home.style.margin = "0 5px";
+    about.style.margin = "0 5px";
+    service.style.margin = "0 5px";
+    contact.style.margin = "0 5px";
+    home.href = "#";
+    about.href = "#";
+    service.href = "#";
+    contact.href = "#";
+    body.append(navbar);
+    navbar.append(home, about, service, contact);
+    navbar.style.display = "flex";
+    navbar.style.justifyContent = "flex-end";
+    navbar.style.backgroundColor = "lightblue";
+
+    const header = document.createElement("h1");
+    header.innerText = "Hello there!";
+    header.style.textAlign = "center";
+    body.append(header);
+
+    const main = document.createElement("main");
+    const p = document.createElement("p");
+    p.innerText =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur deserunt itaque illo, corporis deleniti pariatur ad accusantium minus iusto id eum autem ipsa consequatur natus quos qui explicabo dolorem ab minima? Enim blanditiis, amet perspiciatis aliquid ex quibusdam quo dignissimos animi fugit facilis similique, dolorum corporis necessitatibus? Quibusdam, provident velit!";
+    main.append(p, p);
+    body.append(main);
+  </script>
+</html>

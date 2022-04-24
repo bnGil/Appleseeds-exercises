@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Text to copy:</h1>
+    <h2>123456</h2>
+    <div class="form-container">
+      <div class="inputs-container">
+        <input type="text" class="input" maxlength="1" />
+        <input type="text" class="input" maxlength="1" />
+        <input type="text" class="input" maxlength="1" />
+        <input type="text" class="input" maxlength="1" />
+        <input type="text" class="input" maxlength="1" />
+        <input type="text" class="input" maxlength="1" />
+      </div>
+      <button class="btn">Verify</button>
+    </div>
+  </body>
+  <script>
+    const inputElements = [...document.querySelectorAll(".input")];
+
+    inputElements.forEach((ele, index) => {
+      ele.addEventListener("keydown", (e) => {
+        if (e.keyCode === 8 && e.target.value === "") {
+          inputElements[Math.max(0, index - 1)].focus();
+        }
+        ele.addEventListener("input", (e) => {
+          const [first, ...rest] = e.target.value;
+          e.target.value = first ?? "";
+          const lastInputBox = index === inputElements.length - 1;
+          const insertedContent = first !== undefined;
+          if (insertedContent && !lastInputBox) {
+            inputElements[index + 1].focus();
+            // inputElements[index + 1].value = rest.join("");
+            // inputElements[index+1].dispatchEvent(new Event("input"));
+          }
+        });
+      });
+    });
+
+    document.addEventListener("paste", function (e) {
+      // if the target is a text input
+      if (e.target.type === "text") {
+        var data = e.clipboardData.getData("Text");
+        // split clipboard text into single characters
+        data = data.split("");
+        // find all other text inputs
+        [].forEach.call(
+          document.querySelectorAll("input[type=text]"),
+          (node, index) => {
+            // And set input value to the relative character
+            node.value = data[index];
+          }
+        );
+      }
+    });
+  </script>
+</html>

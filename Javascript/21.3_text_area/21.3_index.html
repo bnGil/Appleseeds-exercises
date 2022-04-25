@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    textarea {
+      display: block;
+      width: 400px;
+      height: 100px;
+    }
+    button {
+      margin: 5px 0;
+    }
+    p {
+      color: red;
+      margin: 0;
+      visibility: hidden;
+    }
+  </style>
+  <body>
+    <h3>Why are you interested in this position?</h3>
+    <p>Please enter at least 100 characters</p>
+    <textarea cols="30" rows="10"></textarea>
+    <button>Click here!</button>
+
+    <script>
+      const btn = document.querySelector("button");
+      const textarea = document.querySelector("textarea");
+      const p = document.querySelector("p");
+      textarea.addEventListener("focus", (e) => {
+        p.style.visibility = "hidden";
+      });
+      btn.addEventListener("click", () => {
+        if (textarea.value.length < 100) {
+          p.style.visibility = "visible";
+        }
+      });
+    </script>
+  </body>
+</html>

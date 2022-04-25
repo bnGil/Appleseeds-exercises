@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btns-contianer {
+      display: flex;
+    }
+    button {
+      margin: 10px;
+    }
+  </style>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime officiis
+      enim eligendi in unde eveniet commodi cumque ea possimus eaque!
+    </p>
+    <div class="btns-contianer">
+      <button>+</button>
+      <button>-</button>
+    </div>
+    <script>
+      const btns = document.querySelectorAll("button");
+      const p = document.querySelector("p");
+
+      btns[0].addEventListener("click", (event) => {
+        const style = getComputedStyle(p).getPropertyValue("font-size");
+        const currentSize = parseFloat(style);
+        if (currentSize < 100) {
+          p.style.fontSize = currentSize + 5 + "px";
+        }
+      });
+      btns[1].addEventListener("click", (event) => {
+        const style = getComputedStyle(p).getPropertyValue("font-size");
+        const currentSize = parseFloat(style);
+        if (currentSize > 6) {
+          p.style.fontSize = currentSize - 5 + "px";
+        }
+      });
+    </script>
+  </body>
+</html>

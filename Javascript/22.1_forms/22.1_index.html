@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" id="form">
+      <label for="fname">Name:</label><br />
+      <input type="text" id="fname" name="name" /><br />
+      <label for="age">Age:</label><br />
+      <input type="text" id="age" name="age" /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      const form = document.querySelector("#form");
+      const nameInput = document.querySelector("#fname");
+      const ageInput = document.querySelector("#age");
+      const emailInput = document.querySelector("#email");
+      const body = document.querySelector("body");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const answer = confirm(`Name: ${formData.name}
+Age: ${formData.age}
+Email: ${formData.email}
+
+If you confirm your information press OK. 
+Press CANCEL to change.`);
+        if (answer) {
+          form.remove();
+          const congrats = document.createElement("h1");
+          congrats.innerText =
+            "Congratulations! you successfully sent this form";
+          body.appendChild(congrats);
+        } else return;
+      });
+
+      const formData = {};
+      for (let input of [nameInput, ageInput, emailInput]) {
+        input.addEventListener("input", ({ target }) => {
+          const { name, value } = target;
+          formData[name] = value;
+        });
+      }
+    </script>
+  </body>
+</html>

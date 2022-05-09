@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joke of The Day</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #joke {
+        line-height: 10px;
+        align-self: flex-start;
+      }
+      #joke-header {
+        align-self: flex-start;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Press the button to display the joke of the day!</h1>
+    <button id="btn">Click</button>
+    <h3 id="joke-header"></h3>
+    <p id="joke"></p>
+    <script>
+      const btn = document.getElementById("btn");
+      const jokeHeader = document.getElementById("joke-header");
+      const p = document.getElementById("joke");
+      btn.addEventListener("click", showJoke);
+
+      async function showJoke() {
+        const fetchData = await fetch("https://api.jokes.one/jod");
+        const data = await fetchData.json();
+        jokeHeader.innerText = data.contents.jokes[0].joke.title;
+        p.innerText = data.contents.jokes[0].joke.text;
+      }
+    </script>
+  </body>
+</html>

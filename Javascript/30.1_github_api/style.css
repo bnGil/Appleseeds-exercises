@@ -1,0 +1,113 @@
+:root {
+  font-size: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #343d46;
+}
+
+#container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.search-box input#search {
+  width: 300px;
+  height: 40px;
+  background: #2b303b;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  padding-left: 15px;
+  border-radius: 5px;
+}
+
+.search-box input#search::placeholder {
+  color: #65737e;
+}
+
+.search-box button.icon {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border: none;
+  background: #232833;
+  height: 40px;
+  width: 40px;
+  color: #4f5b66;
+  font-size: 1.5rem;
+  margin-left: -40px;
+  cursor: pointer;
+}
+
+.search-box:hover button.icon:hover {
+  background: white;
+}
+
+#cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 140px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #fff;
+  margin: 2rem;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #232833;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.avatar {
+  max-width: 70%;
+  height: auto;
+  margin: 1rem;
+  border-radius: 5px;
+}
+
+.card-text-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+}
+
+.card-text {
+  margin-bottom: 5px;
+  color: #232833;
+}
+
+#error {
+  color: red;
+}
